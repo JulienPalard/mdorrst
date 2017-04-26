@@ -30,6 +30,11 @@ setup(
     ],
     package_dir={'mdorrst':
                  'mdorrst'},
+    entry_points={
+        'console_scripts': [
+            'mdorrst=mdorrst.mdorrst:run'
+        ]
+    },
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
