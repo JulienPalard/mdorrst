@@ -9,11 +9,6 @@ mdorrst
 .. image:: https://img.shields.io/travis/JulienPalard/mdorrst.svg
         :target: https://travis-ci.org/JulienPalard/mdorrst
 
-.. image:: https://pyup.io/repos/github/JulienPalard/mdorrst/shield.svg
-     :target: https://pyup.io/repos/github/JulienPalard/mdorrst/
-     :alt: Updates
-
-
 Tell appart Markdown and reStructuredText.
 
 
