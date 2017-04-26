@@ -8,23 +8,22 @@ test_mdorrst
 Tests for `mdorrst` module.
 """
 
+import os
+import glob
 import pytest
 
+from mdorrst import from_file
 
-from mdorrst import mdorrst
-
-
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+FIXTURE_DIR = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)),
+    'readmes/',
+)
 
 
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument.
-    """
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+@pytest.mark.parametrize(
+    "readme_file,readme_style",
+    [(readme_file, readme_file.split('.')[-1]) for
+     readme_file in
+     glob.glob(os.path.join(FIXTURE_DIR, '*/*/README.*'))])
+def test_files(readme_file, readme_style):
+    assert from_file(readme_file) == readme_style
