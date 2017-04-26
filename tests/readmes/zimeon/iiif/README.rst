@@ -1,0 +1,107 @@
+====
+iiif
+====
+
+.. image:: https://travis-ci.org/zimeon/iiif.png?branch=master
+  :target: https://travis-ci.org/zimeon/iiif?branch=master
+  :alt: Build status
+
+.. image:: https://coveralls.io/repos/zimeon/iiif/badge.png?branch=master
+  :target: https://coveralls.io/r/zimeon/iiif?branch=master
+  :alt: Test coverage
+
+*iiif* - A Python library providing a reference implementation
+of the `International Image Interoperability Framework
+<http://iiif.io/>`_: Image API
+`2.1
+<http://iiif.io/api/image/2.1/>`_ (and versions
+`2.0
+<http://iiif.io/api/image/2.0/>`_,
+`1.1
+<http://iiif.io/api/image/1.1/>`_, 
+`1.0
+<http://iiif.io/api/image/1.0/>`_).
+Also includes a test server using the library to implement the Image
+API transformations dynamically, and a static file generator to
+pre-compute tiles necessary for OpenSeadragon which may then be
+stored a static files.
+
+Installation
+------------
+
+The library, test server, static file generator are all designed to
+work with Python 2.6, 2.7, 3.4, 3.5 and 3.6. Manual installation is 
+necessary to get the demonstration documentation and examples.
+
+**Automatic installation from PyPI**
+
+The *iiif* library code and scripts are listed in `PyPI
+<http://pypi.python.org/pypi/iiif>`_ and can be installed with 
+``pip`` or ``easy_install``, e.g.:: 
+
+    easy_install iiif
+
+The PyPI version does not include all demonstration documentation and
+examples.
+
+**Manual installation from github**
+
+First, clone the code and examples from the `Github repository
+<https://github.com/zimeon/iiif>`_::
+
+    cd /tmp
+    git clone git://github.com/zimeon/iiif.git
+    cd iiif/
+
+Second, install ``Pillow`` (a fork of ``PIL``)::
+
+    pip install 'Pillow<4.0.0'
+
+- Pillow is tied to <4.0.0 to remain compatible with python 2.6. This code may work with later versions but is not being tested with them
+- You may need ``sudo`` if installing system-wide as opposed to in a user-space environment
+
+After installation of ``Pillow`` there will be be a summary of image formats
+supported. Addition libraries may be require to get all formats depending
+on your platform.
+
+The scripts and demonstrations can then be run from the `iiif` directory.
+
+Finally, you may install the library code and scripts locally in the 
+appropriate places within your python setup using::
+
+    python setup.py build
+    python setup.py install
+
+- You may need ``sudo`` to if installing system-wide as opposed to in a user-space environment
+
+The source code is maintained on `Github
+<https://github.com/zimeon/iiif>`_
+
+See also
+--------
+
+- https://github.com/zimeon/iiif -- git repository
+- https://github.com/zimeon/iiif/tree/master/demo-static -- Static File Demo with OpenSeadragon
+- https://github.com/zimeon/iiif/tree/master/demo-auth -- IIIF Authentication API Demo
+
+Copyright and License
+---------------------
+
+    iiif library and programs implementing the IIIF API
+    Copyright (C) 2012--2017 Simeon Warner
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   
+See `LICENSE.txt
+<LICENSE.txt>`_

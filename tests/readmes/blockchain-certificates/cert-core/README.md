@@ -1,0 +1,12 @@
+
+[![PyPI version](https://badge.fury.io/py/cert-core.svg)](https://badge.fury.io/py/cert-core)
+
+
+# cert-core
+
+Blockchain certificate core libraries.
+
+
+## Contact
+
+Contact [info@blockcerts.org](mailto:info@blockcerts.org) with questions
