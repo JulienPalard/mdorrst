@@ -34,18 +34,15 @@ def find_typical_markers(content):
     return markdown, restructuredtext
 
 
-def from_text(content):
+def sniff(content):
+    """Deduce the format (md|rst|txt) of a given string.
+    """
     markdown, restructuredtext = find_typical_markers(content)
     markdown_points = sum(markdown.values())
     restructuredtext_points = sum(restructuredtext.values())
     if markdown_points == restructuredtext_points == 0:
         return 'txt'
     return 'md' if markdown_points > restructuredtext_points else 'rst'
-
-
-def from_file(filename):
-    with open(filename) as filecontent:
-        return from_text(filecontent.read())
 
 
 def parse_args(args):
@@ -92,7 +89,8 @@ def main(args):
             print("reStructuredText points:")
             pprint.pprint(restructuredtext)
             return
-    print(from_file(args.file_path))
+    with open(args.file_path) as file_to_sniff:
+        print(sniff(file_to_sniff.read()))
 
 
 def run():

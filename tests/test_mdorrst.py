@@ -12,7 +12,7 @@ import os
 import glob
 import pytest
 
-from mdorrst import from_file
+from mdorrst import sniff
 
 FIXTURE_DIR = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
@@ -26,4 +26,5 @@ FIXTURE_DIR = os.path.join(
      readme_file in
      glob.glob(os.path.join(FIXTURE_DIR, '*/*/README.*'))])
 def test_files(readme_file, readme_style):
-    assert from_file(readme_file) == readme_style
+    with open(readme_file) as readme:
+        assert sniff(readme.read()) == readme_style

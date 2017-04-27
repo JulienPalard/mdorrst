@@ -17,23 +17,14 @@ Tell appart Markdown and reStructuredText.
 Usage
 -----
 
-The package exposes two functions, ``from_text`` and ``from_file``,
-which both return one of ``md``, ``rst`` or ``txt`` according to the
-*content* given.
-
-``mdorrst.from_file(path)`` only reads the content of the file
- (without being influenced by the filename)::
+The package exposes a single function, ``sniff(content)``, trying to
+deduce the format used, returning it as a string: ``md``, ``rst`` or
+``txt``::
 
   >>> import mdorrst
-  >>> mdorrst.from_file("./README.rst")
-  'rst'
-
-``mdorrst.from_text`` works the same way, given a string::
-
-  >>> import mdorrst
-  >>> mdorrst.from_text("[hey](http://example.com)")
+  >>> mdorrst.sniff("[hey](http://example.com)")
   'md'
-  >>> mdorrst.from_text("`hey <http://example.com>`__")
+  >>> mdorrst.sniff("`hey <http://example.com>`__")
   'rst'
 
 
