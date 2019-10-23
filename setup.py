@@ -25,14 +25,10 @@ setup(
     author="Julien Palard",
     author_email='julien@palard.fr',
     url='https://github.com/JulienPalard/mdorrst',
-    packages=[
-        'mdorrst',
-    ],
-    package_dir={'mdorrst':
-                 'mdorrst'},
+    py_modules=["mdorrst"],
     entry_points={
         'console_scripts': [
-            'mdorrst=mdorrst.mdorrst:run'
+            'mdorrst=mdorrst:run'
         ]
     },
     include_package_data=True,

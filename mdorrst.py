@@ -3,7 +3,10 @@
 from __future__ import print_function, division, absolute_import
 
 import re
-from mdorrst import __version__
+
+__author__ = """Julien Palard"""
+__email__ = 'julien@palard.fr'
+__version__ = '0.4.0'
 
 
 def find_typical_markers(content):
@@ -14,7 +17,7 @@ def find_typical_markers(content):
         'links': content.count(']('),
         'code_blocks': len(re.findall('^ *```$', content, re.M)),
         'images': content.count('!['),
-        'ref_link': len(re.findall('^\[[0-9]\]:', content, re.M))
+        'ref_link': len(re.findall(r'^\[[0-9]\]:', content, re.M))
     }
 
     restructuredtext = {
