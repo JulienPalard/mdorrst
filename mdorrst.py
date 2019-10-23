@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+"""Tell appart Markdown and reStructuredText.
+"""
+
 from __future__ import print_function, division, absolute_import
 
 import re

@@ -1,5 +1,0 @@
-black
-flake8
-pip-tools
-pytest
-tox

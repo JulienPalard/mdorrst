@@ -1,0 +1,14 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "mdorrst"
+author = "Julien Palard"
+author-email = "julien@palard.fr"
+home-page = "https://github.com/JulienPalard/mdorrst"
+classifiers = ["License :: OSI Approved :: MIT License"]
+description-file = "README.rst"
+
+[tool.flit.scripts]
+mdorrst = "mdorrst:run"
