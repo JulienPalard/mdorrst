@@ -88,14 +88,14 @@ def main(args):
     if args.verbose:
         import pprint
 
-        with open(args.file) as readme_file:
+        with open(args.file, encoding="UTF-8") as readme_file:
             markdown, restructuredtext = find_typical_markers(readme_file.read())
             print("Markdown points:")
             pprint.pprint(markdown)
             print("reStructuredText points:")
             pprint.pprint(restructuredtext)
             return
-    with open(args.file) as file_to_sniff:
+    with open(args.file, encoding="UTF-8") as file_to_sniff:
         print(sniff(file_to_sniff.read()))
 
 

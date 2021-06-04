@@ -20,7 +20,7 @@ FIXTURE_DIR = os.path.join(
     ],
 )
 def test_files(readme_file, readme_style):
-    with open(readme_file) as readme:
+    with open(readme_file, encoding="UTF-8") as readme:
         assert mdorrst.sniff(readme.read()) == readme_style
 
 
