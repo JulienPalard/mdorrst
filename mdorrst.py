@@ -13,8 +13,7 @@ __version__ = "0.4.0"
 
 
 def find_typical_markers(content):
-    """Try to find typical markdown or rst markers:
-    """
+    """Try to find typical markdown or rst markers:"""
     markdown = {
         "titles": len(re.findall("^#+ ", content, re.M)),
         "links": content.count("]("),
@@ -46,8 +45,7 @@ def find_typical_markers(content):
 
 
 def sniff(content):
-    """Deduce the format (md|rst|txt) of a given string.
-    """
+    """Deduce the format (md|rst|txt) of a given string."""
     markdown, restructuredtext = find_typical_markers(content)
     markdown_points = sum(markdown.values())
     restructuredtext_points = sum(restructuredtext.values())
@@ -76,7 +74,7 @@ def parse_args(args):
     parser.add_argument(
         "--verbose", "-v", action="store_true", help="Tell why I think like this."
     )
-    parser.add_argument(dest="file_path", help="Path of a file", metavar="README.rst")
+    parser.add_argument("file", help="Path of a file to test.")
     return parser.parse_args(args)
 
 
@@ -90,20 +88,19 @@ def main(args):
     if args.verbose:
         import pprint
 
-        with open(args.file_path) as readme_file:
+        with open(args.file) as readme_file:
             markdown, restructuredtext = find_typical_markers(readme_file.read())
             print("Markdown points:")
             pprint.pprint(markdown)
             print("reStructuredText points:")
             pprint.pprint(restructuredtext)
             return
-    with open(args.file_path) as file_to_sniff:
+    with open(args.file) as file_to_sniff:
         print(sniff(file_to_sniff.read()))
 
 
 def run():
-    """Entry point for console_scripts
-    """
+    """Entry point for console_scripts"""
     import sys
 
     main(sys.argv[1:])
