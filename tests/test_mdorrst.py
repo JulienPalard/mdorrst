@@ -1,22 +1,19 @@
 import os
-import glob
+from pathlib import Path
 import sys
 
 import pytest
 
 import mdorrst
 
-FIXTURE_DIR = os.path.join(
-    os.path.dirname(os.path.realpath(__file__)),
-    "readmes/",
-)
+FIXTURE_DIR = Path(__file__).resolve().parent / "readmes"
 
 
 @pytest.mark.parametrize(
     "readme_file,readme_style",
     [
-        (readme_file, readme_file.split(".")[-1])
-        for readme_file in glob.glob(os.path.join(FIXTURE_DIR, "*/*/README.*"))
+        (readme_file, readme_file.name.split(".")[-1])
+        for readme_file in FIXTURE_DIR.glob("*/*/README.*")
     ],
 )
 def test_files(readme_file, readme_style):
